@@ -38,10 +38,26 @@ function initWorld() {
 
 function makeNewPipe () {
 	// Push a new Pipe Object
-	var topHeight = Math.floor((Math.random()*120)+140);
-	var bottomHeight = Math.floor((Math.random()*120)+140);
-	var newPipe = new pipeObj(topHeight, bottomHeight);
 
+	var pipePosition = Math.floor((Math.random()) * 5);  // 0 - 2 middle 3 Bottom 4 Top
+
+	if (pipePosition < 3)
+	{
+		var topHeight = 240 + Math.floor((Math.random()*20));
+		var bottomHeight = 240 + Math.floor((Math.random()*20));
+	}
+	else if (pipePosition === 3)
+	{
+		var topHeight = 360 + Math.floor((Math.random()*20));
+		var bottomHeight = 120 + Math.floor((Math.random()*20));
+	}
+	else if (pipePosition === 4)
+	{
+		var topHeight = 120 + Math.floor((Math.random()*20));
+		var bottomHeight = 360 + Math.floor((Math.random()*20));
+	}
+
+	var newPipe = new pipeObj(topHeight, bottomHeight);
 	pipesArr.push(newPipe);
 }
 
