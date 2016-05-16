@@ -101,11 +101,12 @@ function collisionCheck ()
 	console.log('pipesArr[0].heightT ' + pipesArr[0].heightT);
 	if ((pipesArr[0].left > 0) && (pipesArr[0].left < 90))
 	{
-		if (((flappyBird.top+30) > pipesArr[0].topB))
+		if (((flappyBird.top + 30) > pipesArr[0].topB) || ((flappyBird.top) < pipesArr[0].heightT))
 		{
 			alert('Game Over!');
 			location.reload();
 		}
+
 	}
 }
 
