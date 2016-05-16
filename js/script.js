@@ -38,8 +38,8 @@ function initWorld() {
 
 function makeNewPipe () {
 	// Push a new Pipe Object
-	var topHeight = Math.floor((Math.random()*80)+180);
-	var bottomHeight = Math.floor((Math.random()*80)+180);
+	var topHeight = Math.floor((Math.random()*120)+140);
+	var bottomHeight = Math.floor((Math.random()*120)+140);
 	var newPipe = new pipeObj(topHeight, bottomHeight);
 
 	pipesArr.push(newPipe);
@@ -58,6 +58,7 @@ function drawPipes() {
 		if (pipesArr[0].left <= -10)   // Remove pipe off screen.
 			{
 				pipesArr.shift();
+				playerScore+=10;
 			}
 		for(var i=0;i<pipesArr.length;i++)
 		{
@@ -90,15 +91,14 @@ function drawBird () {
 	var html2 = '';
 	html2 += '<div class="flappybird" style="top:' + flappyBird.top + 'px"></div>';
 	$(".container").append(html2);
-	collisionCheck();
 }
 
 function collisionCheck ()
 {
-	console.log('pipesArr[0].left ' + pipesArr[0].left);
-	console.log('flappyBird.top ' + flappyBird.top);
-	console.log('pipesArr[0].topB ' + pipesArr[0].topB);
-	console.log('pipesArr[0].heightT ' + pipesArr[0].heightT);
+	// console.log('pipesArr[0].left ' + pipesArr[0].left);
+	// console.log('flappyBird.top ' + flappyBird.top);
+	// console.log('pipesArr[0].topB ' + pipesArr[0].topB);
+	// console.log('pipesArr[0].heightT ' + pipesArr[0].heightT);
 	if ((pipesArr[0].left > 0) && (pipesArr[0].left < 90))
 	{
 		if (((flappyBird.top + 30) > pipesArr[0].topB) || ((flappyBird.top) < pipesArr[0].heightT))
@@ -127,8 +127,9 @@ function setMotion() {
 	function drawStuff() {
 		// console.log('draw pipe');
 		drawPipes();
-		drawBird();
 		drawScore();
+		drawBird();
+		collisionCheck();
 	}
 
 	function birdFall () {
@@ -152,7 +153,7 @@ $(document).ready(function () {
 		// console.log(event);
 		if (event.keyCode === 32)
 		{
-			flappyBird.top -= 30;
+			flappyBird.top -= 25;
 		}
 	})
 });

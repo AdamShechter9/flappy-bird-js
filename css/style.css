@@ -14,6 +14,9 @@ body {
 	border: 1px solid white;
 	margin: auto;
 	position: relative;
+	background-image: url('../img/background.png');
+	background-size: contain;
+	background-repeat: repeat-x;
 }
 
 .pipebottom {
@@ -25,6 +28,9 @@ body {
 /* */
 	top: 360px;
 	vertical-align: bottom;
+	background-image: url('../img/pipeBOTTOM.png');
+	background-size: cover;
+	background-position: top;
 }
 
 .pipetop {
@@ -33,6 +39,9 @@ body {
 	width: 60px;
 	background-color: blue;
 	position: absolute;
+	background-image: url('../img/pipeTOP.png');
+	background-size: cover;
+	background-position: bottom;
 /*	left: 240px;*/
 }
 
