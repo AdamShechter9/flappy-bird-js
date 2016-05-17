@@ -10,8 +10,8 @@ Create Bird CSS.  DONE
 Update to JavaScript.  DONE
 
 Scoring System
-	- create a score box
-	- update score
-	
+	- create a score box. DONE
+	- update score. 
+
 Collision Detection
 Update pipes to images

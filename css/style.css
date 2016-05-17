@@ -60,7 +60,7 @@ body {
 .scoreBox {
 	width: 120px;
 	height: 78px;
-	border: 4px solid white;
+	/*border: 4px solid white;*/
 	position: absolute;
 	top: 630px;
 	left: 220px;
