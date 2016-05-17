@@ -8,7 +8,7 @@ body {
 	padding-top: 50px;
 }
 
-.container {
+#container {
 	width: 600px;
 	height: 600px;
 	border: 1px solid white;
@@ -45,7 +45,7 @@ body {
 /*	left: 240px;*/
 }
 
-.flappybird {
+#flappybird {
 	height: 30px;
 	width: 30px;
 	background-image: url('../img/flappybirdsprite.png');

@@ -28,8 +28,8 @@ var flappyBird = {
 
 // Global variable for counting frames.
 // Resets at 40
-var framecounter = 0;
-var framereset = 40;
+var framecounter = 0,
+	framereset = 40;
 
 // Global variable for score
 var playerScore = 0;
@@ -79,7 +79,7 @@ function drawPipes() {
 		if (pipesArr[0].left <= -10)   // Remove pipe off screen.
 			{
 				pipesArr.shift();
-				playerScore+=10;
+				playerScore+=1;
 			}
 		for(var i=0;i<pipesArr.length;i++)
 		{
@@ -88,7 +88,8 @@ function drawPipes() {
 				
 				html1 += '<div class="pipetop" style="left:' + pipesArr[i].left + 'px; height: ' + pipesArr[i].heightT + 'px"></div>';
 				html1 += '<div class="pipebottom" style="left:' + pipesArr[i].left + 'px; height: ' + pipesArr[i].heightB + 'px; top: ' + pipesArr[i].topB + 'px "></div>';
-				$(".container").html(html1);
+				document.getElementById('container').innerHTML = html1;
+				// $("#container").html(html1);
 				pipesArr[i].left -= 5;
 			}	
 		}
@@ -109,9 +110,10 @@ function drawPipes() {
 }
 
 function drawBird () {
+	var htmlcontents = document.getElementById('container').innerHTML;
 	var html2 = '';
-	html2 += '<div class="flappybird" style="top:' + flappyBird.top + 'px"></div>';
-	$(".container").append(html2);
+	html2 += '<div id="flappybird" style="top:' + flappyBird.top + 'px"></div>';
+	document.getElementById('container').innerHTML = htmlcontents + html2;
 }
 
 function collisionCheck ()
@@ -127,9 +129,10 @@ function collisionCheck ()
 }
 
 function drawScore () {
+	var htmlcontents = document.getElementById('container').innerHTML;
 	var html3 = '';
 	html3 += '<div class="scoreBox"><h3>'+playerScore+'</h3></div>';
-	$(".container").append(html3);
+	document.getElementById('container').innerHTML = htmlcontents + html3;
 }
 
 function setMotion() {
@@ -155,16 +158,13 @@ function birdFall () {
 	}
 }
 
+initWorld();
+setMotion();
 
-
-$(document).ready(function () {
-	initWorld();
-	setMotion();
-	$(document).keypress(function (event) {
-		// console.log(event);
-		if (event.keyCode === 32)
-		{
-			flappyBird.top -= 35;
-		}
-	})
-});
+document.onkeydown = function (event)
+{
+	if (event.keyCode === 32)
+	{
+		flappyBird.top -= 35;
+	}
+} 
